@@ -17,4 +17,19 @@ public:
 			*(bool*)(reinterpret_cast<uintptr_t>(this) + 0x1C0) = state;
 		}
 	}
+
+	void SetStepHeight(float value) {
+		if (this != nullptr) {
+			*(float*)(reinterpret_cast<uintptr_t>(this) + 0x220) = value; //Default = 0.5625
+		}
+	}
+
+	void ModifyCollision(float width, float height) {
+		if (this != nullptr) {
+			float* widthAddr = (float*)(reinterpret_cast<uintptr_t>(this) + 0x4B4);
+			float* heightAddr = (float*)(reinterpret_cast<uintptr_t>(this) + 0x4B8);
+			*widthAddr = width;
+			*heightAddr = height;
+		}
+	}
 };

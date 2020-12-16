@@ -21,9 +21,11 @@ void ClientManager::InitHooks() {
 	}
 }
 
+#include "Modules/Hitbox.h"
 #include "Modules/AirJump.h"
 
 void ClientManager::InitModules() {
+	Modules.push_back(new Hitbox());
 	Modules.push_back(new AirJump());
 
 	for (;;) {
