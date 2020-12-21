@@ -1,8 +1,8 @@
 #include "ClientManager.h"
 #include "../Other/Module.h"
 
-std::vector<Hook*> Hooks;
-std::vector<Module*> Modules;
+std::vector<Hook*> ClientManager::Hooks;
+std::vector<Module*> ClientManager::Modules;
 
 #include "Hooks/ClientInstance.h"
 #include "Hooks/KeyItem.h"
