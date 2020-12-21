@@ -3,33 +3,28 @@
 
 class LocalPlayer {
 public:
-	class MultiPlayerLevel* MultiPlayerLevel() {
-		if (this != nullptr) {
-			return *reinterpret_cast<class MultiPlayerLevel**>(reinterpret_cast<__int64>(this) + 0x358);
-		}
-		else {
-			return nullptr;
-		}
-	}
+	char pad_0008[280]; //0x0008
+	Vec2 bodyRot; //0x0120
+	char pad_0128[152]; //0x0128
+	bool onGround; //0x01C0
+	char pad_01C1[95]; //0x01C1
+	float stepHeight; //0x0220 | Default = 0.5625
+	char pad_0224[308]; //0x0224
+	MultiPlayerLevel* MultiPlayerLevel; //0x0358
+	char pad_0360[340]; //0x0360
+	Vec2 collision; //0x04B4
+	char pad_04BC[24]; //0x04BC
+	Vec3 velocity; //0x04D4
+	char pad_04E0[880]; //0x04E0
 
-	void SetOnGroundState(bool state) {
-		if (this != nullptr) {
-			*(bool*)(reinterpret_cast<uintptr_t>(this) + 0x1C0) = state;
-		}
-	}
-
-	void SetStepHeight(float value) {
-		if (this != nullptr) {
-			*(float*)(reinterpret_cast<uintptr_t>(this) + 0x220) = value; //Default = 0.5625
-		}
-	}
-
-	void ModifyCollision(float width, float height) {
-		if (this != nullptr) {
-			float* widthAddr = (float*)(reinterpret_cast<uintptr_t>(this) + 0x4B4);
-			float* heightAddr = (float*)(reinterpret_cast<uintptr_t>(this) + 0x4B8);
-			*widthAddr = width;
-			*heightAddr = height;
-		}
-	}
+	virtual void Function0();
+	virtual void Function1();
+	virtual void Function2();
+	virtual void Function3();
+	virtual void Function4();
+	virtual void Function5();
+	virtual void Function6();
+	virtual void Function7();
+	virtual void Function8();
+	virtual void Function9();
 };

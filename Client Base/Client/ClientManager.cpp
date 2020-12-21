@@ -25,10 +25,12 @@ void ClientManager::InitHooks() {
 
 #include "Modules/Hitbox.h"
 #include "Modules/AirJump.h"
+#include "Modules/Jetpack.h"
 
 void ClientManager::InitModules() {
 	Modules.push_back(new Hitbox());
 	Modules.push_back(new AirJump());
+	Modules.push_back(new Jetpack());
 
 	for (;;) {
 		for (int I = 0; I < Modules.size(); I++) { //Loop Modules

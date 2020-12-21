@@ -7,6 +7,4 @@ public:
 		this->isEnabled = true;
 	};
 	void onTick();
-	void onEnable();
-	void onDisable();
 };

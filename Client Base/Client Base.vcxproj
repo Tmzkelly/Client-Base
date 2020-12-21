@@ -157,6 +157,7 @@
     <ClCompile Include="Client\ClientManager.cpp" />
     <ClCompile Include="Client\Modules\AirJump.cpp" />
     <ClCompile Include="Client\Modules\Hitbox.cpp" />
+    <ClCompile Include="Client\Modules\Jetpack.cpp" />
     <ClCompile Include="Other\Module.cpp" />
     <ClCompile Include="Other\Utils.cpp" />
   </ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="Client\Hooks\KeyItem.h" />
     <ClInclude Include="Client\Modules\AirJump.h" />
     <ClInclude Include="Client\Modules\Hitbox.h" />
+    <ClInclude Include="Client\Modules\Jetpack.h" />
     <ClInclude Include="Other\Module.h" />
     <ClInclude Include="Other\Utils.h" />
     <ClInclude Include="SDK\Classes\ClientInstance.h" />
