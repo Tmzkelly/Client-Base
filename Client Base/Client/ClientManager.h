@@ -5,4 +5,6 @@ class ClientManager {
 public:
 	static void InitHooks();
 	static void InitModules();
+	static std::vector<class Hook*> Hooks;
+	static std::vector<class Module*> Modules;
 };
