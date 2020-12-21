@@ -5,6 +5,7 @@ std::vector<Hook*> Hooks;
 std::vector<Module*> Modules;
 
 #include "Hooks/ClientInstance.h"
+#include "Hooks/KeyItem.h"
 
 ClientInstance* Minecraft::CachedInstance = nullptr; //Resolve error on compile
 
@@ -12,6 +13,7 @@ void ClientManager::InitHooks() {
 
 	if (MH_Initialize() == MH_OK) {
 		Hooks.push_back(new ClientInstance_Hook());
+		Hooks.push_back(new KeyItem());
 	}
 
 	Utils::DebugLogOutput("Initializing Hooks...");

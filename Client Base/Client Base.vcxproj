@@ -163,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="Client\ClientManager.h" />
     <ClInclude Include="Client\Hooks\ClientInstance.h" />
+    <ClInclude Include="Client\Hooks\KeyItem.h" />
     <ClInclude Include="Client\Modules\AirJump.h" />
     <ClInclude Include="Client\Modules\Hitbox.h" />
     <ClInclude Include="Other\Module.h" />

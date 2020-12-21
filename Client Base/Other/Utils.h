@@ -291,4 +291,7 @@ public:
 	static uintptr_t FindAddr(uintptr_t, std::vector<unsigned int>);
 	static uintptr_t FindSig(const char*);
 	static std::string ptrToStr(uintptr_t);
+
+	static std::map<uint64_t, bool> KeyMapping;
+	static bool usingKey(uint64_t);
 };

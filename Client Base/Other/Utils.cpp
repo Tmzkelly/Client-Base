@@ -131,3 +131,9 @@ std::string Utils::ptrToStr(uintptr_t ptr) {
 	ss << std::hex << ((UINT64)ptr) << std::endl;
 	return ss.str();
 }
+
+std::map<uint64_t, bool> Utils::KeyMapping;
+
+bool Utils::usingKey(uint64_t key) {
+	return KeyMapping[key];
+}
