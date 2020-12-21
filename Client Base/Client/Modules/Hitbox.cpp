@@ -7,7 +7,7 @@ void Hitbox::onTick() {
 		size_t size = curr->getListSize();
 		if (size > 0 && size <= 5000) {
 			for (size_t I = 0; I < size; I++) {
-				LocalPlayer* currPlayer = curr->get(I);
+				Actor* currPlayer = curr->get(I);
 				if (currPlayer != nullptr && currPlayer != Player) {
 					currPlayer->collision = Vec2(4.f, 4.f);
 				}

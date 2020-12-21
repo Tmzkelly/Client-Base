@@ -21,10 +21,10 @@ public:
 	virtual void Function9();
 public:
 
-	inline class LocalPlayer* get(size_t idx) {
+	inline class Actor* get(size_t idx) {
 		if (idx >= getListSize())
 			return 0;
-		return *reinterpret_cast<class LocalPlayer**>(listStart + (idx * sizeof(uintptr_t)));
+		return *reinterpret_cast<class Actor**>(listStart + (idx * sizeof(uintptr_t)));
 	};
 	inline size_t getListSize() {
 		return (listEnd - listStart) / sizeof(uintptr_t);

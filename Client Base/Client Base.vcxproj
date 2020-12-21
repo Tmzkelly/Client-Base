@@ -170,6 +170,7 @@
     <ClInclude Include="Client\Modules\Jetpack.h" />
     <ClInclude Include="Other\Module.h" />
     <ClInclude Include="Other\Utils.h" />
+    <ClInclude Include="SDK\Classes\Actor.h" />
     <ClInclude Include="SDK\Classes\ClientInstance.h" />
     <ClInclude Include="SDK\Classes\LocalPlayer.h" />
     <ClInclude Include="SDK\Classes\MultiPlayerLevel.h" />

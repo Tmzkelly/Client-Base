@@ -1,4 +1,5 @@
 #pragma once
+#include "Actor.h"
 #include "LocalPlayer.h"
 
 class ClientInstance {
