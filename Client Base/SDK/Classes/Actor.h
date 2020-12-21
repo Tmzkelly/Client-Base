@@ -105,18 +105,18 @@ public:
 	virtual void onInsideBubbleColumn(bool);
 	virtual bool isImmobile(void);
 	virtual bool isSilent(void);
-	virtual void Function88();
+	virtual bool isPickable();
 	virtual void Function89();
-	virtual void Function90();
+	virtual bool isSleeping(void);
 	virtual void Function91();
 	virtual void setSneaking(bool);
-	virtual void Function93();
+	virtual bool isBlocking(void);
 	virtual void Function94();
-	virtual bool isPickable(void);
+	virtual bool isAlive(void);
 	virtual bool isOnFire(void);
 	virtual bool isOnHotBlock(void);
 	virtual void Function98();
-	virtual void Function99();
+	virtual bool isSurfaceMob(void);
 	virtual void Function100();
 	virtual void Function101();
 	virtual void Function102();
@@ -126,7 +126,7 @@ public:
 	virtual void Function106();
 	virtual void attack(Actor&);
 	virtual void performRangedAttack(Actor&, float);
-	virtual void Function109();
+	virtual void adjustDamageAmount(int&);
 	virtual int getEquipmentCount(void);
 	virtual void setOwner(uint64_t); //Param is ActorUniqueID
 	virtual void setSitting(bool);
@@ -138,7 +138,7 @@ public:
 	virtual void setStanding(bool);
 	virtual bool canPowerJump(void);
 	virtual void setCanPowerJump(bool);
-	virtual void Function121();
+	virtual bool isJumping(void);
 	virtual bool isEnchanted(void);
 	virtual void Function123();
 	virtual void Function124();
@@ -146,10 +146,10 @@ public:
 	virtual void Function126();
 	virtual void Function127();
 	virtual void Function128();
-	virtual void Function129();
+	virtual void animateHurt(void);
 	virtual void doFireHurt(void);
 	virtual void onLightningHit(void);
-	virtual void Function132();
+	virtual void onBounceStarted(void);
 	virtual void feed(int);
 	virtual void handleEntityEvent(class ActorEvent, int);
 	virtual float getPickRadius(void);
@@ -168,8 +168,8 @@ public:
 	virtual void Function148();
 	virtual float getModelScale(void);
 	virtual class ItemStack getEquippedSlot(int);
-	virtual void Function151();
-	virtual class ItemStack getCarriedItem(void);
+	virtual void setEquippedSlot(int, class ItemStack const&);
+	virtual class ItemStack getSelectedItem(void);
 	virtual void setCarriedItem(class ItemStack const&);
 	virtual void setOffhandSlot(class ItemStack const&);
 	virtual class ItemStack getEquippedTotem(void);
