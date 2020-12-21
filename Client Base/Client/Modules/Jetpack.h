@@ -9,4 +9,5 @@ public:
 	void onTick();
 private:
 	float speed = 1.0f;
+	bool modified = false;
 };
