@@ -12,8 +12,8 @@ public:
 	virtual void Function268();
 	virtual void Function269();
 	virtual float getSpeed(void);
-	virtual void setSpeed(float)
-		virtual float getJumpPower(void);
+	virtual void setSpeed(float);
+	virtual float getJumpPower(void);
 	virtual void Function273();
 	virtual void Function274();
 	virtual void Function275();
