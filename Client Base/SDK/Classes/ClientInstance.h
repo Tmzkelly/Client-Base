@@ -1,4 +1,6 @@
 #pragma once
+#include "TextHolder.h"
+#include "MinecraftUIRenderContext.h"
 #include "Actor.h"
 #include "LocalPlayer.h"
 
@@ -22,8 +24,16 @@ public:
 	}
 };
 
+class BitmapFont {
+public:
+	//
+};
+
 class MinecraftGame {
 public:
+	class BitmapFont* MCFont() {
+		return *reinterpret_cast<class BitmapFont**>(reinterpret_cast<__int64>(this) + 0xD8);
+	}
 	bool canUseKeys() {
 		return *(bool*)(reinterpret_cast<uintptr_t>(this) + 0x260);
 	}

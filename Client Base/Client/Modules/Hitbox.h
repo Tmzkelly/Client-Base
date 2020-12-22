@@ -3,8 +3,6 @@
 
 class Hitbox : public Module {
 public:
-	Hitbox() : Module::Module("Hitbox", "Enlarge Enemy Hitboxes") {
-		this->isEnabled = true;
-	}
+	Hitbox() : Module::Module("Hitbox", "Combat", "Enlarge Enemy Hitboxes") {}
 	void onTick();
 };

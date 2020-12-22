@@ -11,6 +11,9 @@ AVKeyItem _AVKeyItem;
 
 void KeyItemCallback(uint64_t key, bool isDown) {
 	Utils::KeyMapping[key] = isDown;
+	for (auto Module : ClientManager::Modules) {
+		if (Module->isEnabled) Module->onKey(key, isDown);
+	}
 	_AVKeyItem(key, isDown);
 }
 

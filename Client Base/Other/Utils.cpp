@@ -1,5 +1,7 @@
 #include "Utils.h"
 
+HMODULE Utils::hModule = nullptr;
+
 bool Utils::hasExtension(std::string fileName) {
 	std::string::size_type idx;
 	idx = fileName.rfind('.');
@@ -136,4 +138,54 @@ std::map<uint64_t, bool> Utils::KeyMapping;
 
 bool Utils::usingKey(uint64_t key) {
 	return KeyMapping[key];
+}
+
+
+
+/* Render Utils */
+
+#include "../SDK/Classes/ClientInstance.h"
+
+class MinecraftUIRenderContext* RenderUtils::CachedContext = nullptr; //Resolve Compile Error
+class BitmapFont* RenderUtils::CachedFont = nullptr;
+
+void RenderUtils::SetContext(class MinecraftUIRenderContext* Context, class BitmapFont* Font) {
+	CachedContext = Context;
+	CachedFont = Font;
+}
+
+void RenderUtils::FlushText() {
+	if (CachedContext != nullptr) CachedContext->flushText(0);
+}
+
+float RenderUtils::GetTextWidth(std::string text, float textSize) {
+	if (CachedContext != nullptr) {
+		TextHolder myText(text);
+		return CachedContext->getLineLength(CachedFont, &myText, textSize, false);
+	}
+}
+
+void RenderUtils::RenderText(std::string text, Vec2 textPos, MC_Colour colour, float textSize, float alpha) {
+	if (CachedContext != nullptr && CachedFont != nullptr) {
+		static uintptr_t caretMeasureData = 0xFFFFFFFF;
+		Vec4 pos(textPos.x, textPos.x + 100, textPos.y, textPos.y + 100);
+		TextHolder myText(text);
+		CachedContext->drawText(CachedFont, &pos, &myText, colour, alpha, 0, &textSize, &caretMeasureData);
+	}
+}
+
+void RenderUtils::FillRectangle(Vec4 position, MC_Colour colour, float alpha) {
+	if (CachedContext != nullptr) {
+		CachedContext->fillRectangle(Vec4(position.x, position.z, position.y, position.w), colour, alpha);
+	}
+}
+
+void RenderUtils::DrawRectangle(Vec4 position, MC_Colour colour, float alpha, float lineWidth) {
+	if (CachedContext != nullptr) {
+		lineWidth /= 2;
+		FillRectangle(Vec4(position.x - lineWidth, position.y - lineWidth, position.z + lineWidth, position.y + lineWidth), colour, alpha);
+		FillRectangle(Vec4(position.x - lineWidth, position.y, position.x + lineWidth, position.w), colour, alpha);
+		FillRectangle(Vec4(position.z - lineWidth, position.y, position.z + lineWidth, position.w), colour, alpha);
+		FillRectangle(Vec4(position.x - lineWidth, position.w - lineWidth, position.z + lineWidth, position.w + lineWidth), colour, alpha);
+	}
 }

@@ -3,8 +3,6 @@
 
 class AirJump : public Module {
 public:
-	AirJump() : Module::Module("AirJump", "Jump in the air") {
-		this->isEnabled = true;
-	};
+	AirJump() : Module::Module("AirJump", "Movement", "Jump in the air") {};
 	void onTick();
 };

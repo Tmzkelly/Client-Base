@@ -2,6 +2,7 @@
 #include "Client/ClientManager.h"
 
 void Init(LPVOID lpParam) {
+    Utils::hModule = (HMODULE)lpParam;
     Utils::DeletePath("Client/Output.txt");
     Utils::DebugLogOutput("Injected...");
 

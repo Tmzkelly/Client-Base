@@ -3,9 +3,8 @@
 
 class Jetpack : public Module {
 public:
-	Jetpack() : Module::Module("Jetpack", "Boost directory forwards when holding the desired key (Default: F)", 0x46) {
-		this->isEnabled = true;
-	};
+	Jetpack() : Module::Module("Jetpack", "Movement", "Boost directory forwards when holding the desired key (Default: F)", 0x46) {};
+	void onLoop();
 	void onTick();
 private:
 	float speed = 1.0f;

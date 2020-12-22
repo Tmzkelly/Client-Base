@@ -280,8 +280,87 @@ struct Vec3_i {
 	}
 };
 
+struct Vec4 {
+	union {
+		struct {
+			float x, y, z, w;
+		};
+		float arr[4];
+	};
+	Vec4() { x = y = z = w = 0; }
+	Vec4(float x = 0, float y = 0, float z = 0, float w = 0) {
+		this->x = x, this->y = y, this->z = z, this->w = w;
+	}
+
+	bool operator == (Vec4 v) { return v.x == x && v.y == y && v.z == z && v.w == w; };
+	bool operator != (Vec4 v) { return v.x != x || v.y != y || v.z != z || v.w != w; };
+};
+
+struct MC_Colour {
+	union {
+		struct {
+			float r, g, b, a;
+		};
+		float arr[4];
+	};
+	bool shouldDelete = true;
+
+	MC_Colour() {
+		this->r = 1;
+		this->g = 1;
+		this->b = 1;
+		this->a = 1;
+	};
+
+	MC_Colour(const MC_Colour& other) {
+		this->r = other.r;
+		this->g = other.g;
+		this->b = other.b;
+		this->a = other.a;
+		this->shouldDelete = other.shouldDelete;
+	}
+
+	MC_Colour(const float* arr) {
+		this->arr[0] = arr[0];
+		this->arr[1] = arr[1];
+		this->arr[2] = arr[2];
+		this->arr[3] = arr[3];
+	};
+
+	MC_Colour(const float r, const float g, const float b, const float a = 1) {
+		this->r = r;
+		this->g = g;
+		this->b = b;
+		this->a = a;
+	};
+
+	MC_Colour(const int r, const int g, const int b, const int a = 255) {
+		this->r = r / 255.0f;
+		this->g = g / 255.0f;
+		this->b = b / 255.0f;
+		this->a = a / 255.0f;
+	};
+
+	MC_Colour(const float r, const float g, const float b, const float a, const bool shouldDelete) {
+		this->r = r;
+		this->g = g;
+		this->b = b;
+		this->a = a;
+		this->shouldDelete = shouldDelete;
+	};
+
+	bool operator == (MC_Colour colour) {
+		return this->r == colour.r && this->g == colour.g && this->b == colour.b;
+	};
+
+	bool operator != (MC_Colour colour) {
+		return this->r != colour.r || this->g != colour.g || this->b != colour.b;
+	};
+};
+
 class Utils {
 public:
+	static HMODULE hModule;
 	static bool hasExtension(std::string fileName);
 	static bool doesPathExist(std::string);
 	static void CreateDir(std::string);
@@ -294,4 +373,18 @@ public:
 
 	static std::map<uint64_t, bool> KeyMapping;
 	static bool usingKey(uint64_t);
+};
+
+class RenderUtils {
+private:
+	static class MinecraftUIRenderContext* CachedContext;
+	static class BitmapFont* CachedFont;
+public:
+	static void SetContext(class MinecraftUIRenderContext* Context, class BitmapFont* Font);
+	static void FlushText();
+	static float GetTextWidth(std::string text, float textSize);
+	static void RenderText(std::string text, Vec2 textPos, MC_Colour colour, float textSize, float alpha);
+
+	static void FillRectangle(Vec4 position, MC_Colour colour, float alpha);
+	static void DrawRectangle(Vec4 position, MC_Colour colour, float alpha, float lineWidth);
 };
