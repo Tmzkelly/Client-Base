@@ -17,6 +17,8 @@ public:
 	virtual void onRender() {};
 	virtual void onGmTick() {};
 	virtual void onKey(uint64_t key, bool isDown, bool* cancel) {};
+
+	virtual void onStartDestroyBlock(GameMode* GM, Vec3_i* blockPos, uint8_t blockFace) {};
 };
 
 class Hook {

@@ -54,6 +54,9 @@
     <ClCompile Include="Client\Modules\Uninject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Client\Modules\Instabreak.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Other\Utils.h">
@@ -126,6 +129,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Client\Modules\TestModule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\Modules\Instabreak.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

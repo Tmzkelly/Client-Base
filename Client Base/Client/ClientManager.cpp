@@ -42,6 +42,8 @@ void ClientManager::InitHooks() {
 //
 /* Visuals */
 #include "Modules/TabGUI.h"
+/* World */
+#include "Modules/Instabreak.h"
 /* Other */
 #include "Modules/TestModule.h"
 #include "Modules/Uninject.h"
@@ -57,6 +59,8 @@ void ClientManager::InitModules() {
 	Modules.push_back(new Jesus());
 	/* Visuals */
 	Modules.push_back(new TabGUI());
+	/* World */
+	Modules.push_back(new Instabreak());
 	/* Other */
 	Modules.push_back(new TestModule());
 	Modules.push_back(new Uninject());
