@@ -22,7 +22,7 @@ std::vector<std::string> SortArrayOfStrings(std::vector<std::string> stringVecAr
 };
 
 void TabGUI::onRender() {
-	RenderUtils::RenderText("Client", Vec2(10, 0), MC_Colour(50, 200, 150), 1.0f, 1.0f);
+	RenderUtils::RenderText("Client", Vec2(12, 0), MC_Colour(50, 200, 150), 1.0f, 1.0f);
 	if (Minecraft::ClientInstance() != nullptr && Minecraft::ClientInstance()->MinecraftGame()->canUseKeys()) {
 		auto Categories = ClientManager::Categories;
 		auto Modules = ClientManager::GetModulesFromCategory(Categories.at(currentCategory));
