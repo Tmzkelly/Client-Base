@@ -31,11 +31,11 @@ public:
 	virtual void remove(void);
 	virtual void setPos(Vec3 const&);
 	virtual void Function13();
-	virtual Vec3 getPos();
-	virtual Vec3 getPosOld();
-	virtual Vec3 getPosExtrapolated(float);
+	virtual Vec3* getPos();
+	virtual Vec3* getPosOld();
+	virtual Vec3* getPosExtrapolated(float);
 	virtual void Function17();
-	virtual Vec3 getFiringPos(void);
+	virtual Vec3* getFiringPos(void);
 	virtual void setRot(Vec3 const&);
 	virtual void Function20();
 	virtual void move(Vec3 const&);
@@ -93,7 +93,7 @@ public:
 	virtual void Function73();
 	virtual void Function74();
 	virtual float getShadowRadius(void);
-	virtual Vec3 getHeadLookVector(float);
+	virtual Vec3* getHeadLookVector(float);
 	virtual void Function77();
 	virtual bool canSee(Vec3 const&);
 	virtual bool canSee(Actor const&);

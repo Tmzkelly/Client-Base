@@ -1,6 +1,6 @@
 #include "Hitbox.h"
 
-void Hitbox::onTick() {
+void Hitbox::onGmTick() {
 	LocalPlayer* Player = Minecraft::ClientInstance()->LocalPlayer();
 	if (Player != nullptr) {
 		MultiPlayerLevel* curr = Player->MultiPlayerLevel;
@@ -9,7 +9,23 @@ void Hitbox::onTick() {
 			for (size_t I = 0; I < size; I++) {
 				Actor* currPlayer = curr->get(I);
 				if (currPlayer != nullptr && currPlayer != Player) {
-					currPlayer->collision = Vec2(4.f, 4.f);
+					currPlayer->setSize(4.f, 4.f);
+				}
+			}
+		}
+	}
+}
+
+void Hitbox::onDisable() {
+	LocalPlayer* Player = Minecraft::ClientInstance()->LocalPlayer();
+	if (Player != nullptr) {
+		MultiPlayerLevel* curr = Player->MultiPlayerLevel;
+		size_t size = curr->getListSize();
+		if (size > 0 && size <= 5000) {
+			for (size_t I = 0; I < size; I++) {
+				Actor* currPlayer = curr->get(I);
+				if (currPlayer != nullptr && currPlayer != Player) {
+					currPlayer->setSize(0.6f, 1.8f);
 				}
 			}
 		}

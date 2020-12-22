@@ -15,7 +15,8 @@ public:
 	virtual void onDisable() {};
 
 	virtual void onRender() {};
-	virtual void onKey(uint64_t key, bool isDown) {};
+	virtual void onGmTick() {};
+	virtual void onKey(uint64_t key, bool isDown, bool* cancel) {};
 };
 
 class Hook {

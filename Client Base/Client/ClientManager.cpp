@@ -7,15 +7,19 @@ std::vector<std::string> ClientManager::Categories;
 
 #include "Hooks/ClientInstance.h"
 #include "Hooks/RenderContext.h"
+#include "Hooks/GameMode.h"
 #include "Hooks/KeyItem.h"
 
 ClientInstance* Minecraft::CachedInstance = nullptr; //Resolve error on compile
+GameMode* Minecraft::CachedGameMode = nullptr; //Resolve error on compile
+std::vector<std::string> Minecraft::Friends = { "EchoHackCmd", "bricker1462" };
 
 void ClientManager::InitHooks() {
 
 	if (MH_Initialize() == MH_OK) {
 		Hooks.push_back(new ClientInstance_Hook());
 		Hooks.push_back(new RenderContext());
+		Hooks.push_back(new GameMode_Hook());
 		Hooks.push_back(new KeyItem());
 	}
 
@@ -26,20 +30,36 @@ void ClientManager::InitHooks() {
 	}
 }
 
+/* Combat */
+#include "Modules/Killaura.h"
 #include "Modules/Hitbox.h"
+/* Movement */
 #include "Modules/AirJump.h"
 #include "Modules/Jetpack.h"
-
+#include "Modules/AutoSprint.h"
+#include "Modules/Jesus.h"
+/* Player */
+//
+/* Visuals */
 #include "Modules/TabGUI.h"
+/* Other */
+#include "Modules/TestModule.h"
+#include "Modules/Uninject.h"
 
 void ClientManager::InitModules() {
 	/* Combat */
+	Modules.push_back(new Killaura());
 	Modules.push_back(new Hitbox());
 	/* Movement */
 	Modules.push_back(new AirJump());
 	Modules.push_back(new Jetpack());
+	Modules.push_back(new AutoSprint());
+	Modules.push_back(new Jesus());
 	/* Visuals */
 	Modules.push_back(new TabGUI());
+	/* Other */
+	Modules.push_back(new TestModule());
+	Modules.push_back(new Uninject());
 
 	for (int I = 0; I < Modules.size(); I++) { //Initialize Categories
 		bool exists = false;

@@ -156,25 +156,37 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Client\ClientManager.cpp" />
     <ClCompile Include="Client\Modules\AirJump.cpp" />
+    <ClCompile Include="Client\Modules\AutoSprint.cpp" />
     <ClCompile Include="Client\Modules\Hitbox.cpp" />
+    <ClCompile Include="Client\Modules\Jesus.cpp" />
     <ClCompile Include="Client\Modules\Jetpack.cpp" />
+    <ClCompile Include="Client\Modules\Killaura.cpp" />
     <ClCompile Include="Client\Modules\TabGUI.cpp" />
+    <ClCompile Include="Client\Modules\TestModule.cpp" />
+    <ClCompile Include="Client\Modules\Uninject.cpp" />
     <ClCompile Include="Other\Module.cpp" />
     <ClCompile Include="Other\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\ClientManager.h" />
     <ClInclude Include="Client\Hooks\ClientInstance.h" />
+    <ClInclude Include="Client\Hooks\GameMode.h" />
     <ClInclude Include="Client\Hooks\KeyItem.h" />
     <ClInclude Include="Client\Hooks\RenderContext.h" />
     <ClInclude Include="Client\Modules\AirJump.h" />
+    <ClInclude Include="Client\Modules\AutoSprint.h" />
     <ClInclude Include="Client\Modules\Hitbox.h" />
+    <ClInclude Include="Client\Modules\Jesus.h" />
     <ClInclude Include="Client\Modules\Jetpack.h" />
+    <ClInclude Include="Client\Modules\Killaura.h" />
     <ClInclude Include="Client\Modules\TabGUI.h" />
+    <ClInclude Include="Client\Modules\TestModule.h" />
+    <ClInclude Include="Client\Modules\Uninject.h" />
     <ClInclude Include="Other\Module.h" />
     <ClInclude Include="Other\Utils.h" />
     <ClInclude Include="SDK\Classes\Actor.h" />
     <ClInclude Include="SDK\Classes\ClientInstance.h" />
+    <ClInclude Include="SDK\Classes\GameMode.h" />
     <ClInclude Include="SDK\Classes\LocalPlayer.h" />
     <ClInclude Include="SDK\Classes\MinecraftUIRenderContext.h" />
     <ClInclude Include="SDK\Classes\MultiPlayerLevel.h" />

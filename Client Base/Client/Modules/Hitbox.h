@@ -4,5 +4,6 @@
 class Hitbox : public Module {
 public:
 	Hitbox() : Module::Module("Hitbox", "Combat", "Enlarge Enemy Hitboxes") {}
-	void onTick();
+	void onGmTick();
+	void onDisable();
 };

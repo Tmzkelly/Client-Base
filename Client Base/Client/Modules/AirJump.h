@@ -4,5 +4,5 @@
 class AirJump : public Module {
 public:
 	AirJump() : Module::Module("AirJump", "Movement", "Jump in the air") {};
-	void onTick();
+	void onGmTick();
 };

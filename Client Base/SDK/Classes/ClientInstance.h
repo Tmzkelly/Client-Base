@@ -3,6 +3,7 @@
 #include "MinecraftUIRenderContext.h"
 #include "Actor.h"
 #include "LocalPlayer.h"
+#include "GameMode.h"
 
 class ClientInstance {
 public:
@@ -22,6 +23,25 @@ public:
 			return nullptr;
 		}
 	}
+
+	bool isValidTarget(class Actor* Entity) {
+		if (Entity == nullptr) {
+			return false;
+		}
+		if (Entity->isInvisible() || !Entity->isAlive() || Entity->isImmobile()) {
+			return false;
+		}
+		if (Entity->getEntityTypeId() > 60 && Entity->getEntityTypeId() < 104 && Entity->getEntityTypeId() != 63) {
+			return false;
+		}
+		if (Entity->getFormattedNameTag().length() <= 1) {
+			return false;
+		}
+		if (!(this->LocalPlayer()->canAttack(Entity, false))) {
+			return false;
+		}
+		return true;
+	};
 };
 
 class BitmapFont {
