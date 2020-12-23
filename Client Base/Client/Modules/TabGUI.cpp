@@ -30,7 +30,8 @@ void TabGUI::onRender() {
 		Vec4 boxPos = Vec4(10, 0, boxWidth + 30, Categories.size() * 10 + 10);
 		MC_Colour whiteText = MC_Colour(255, 255, 255), selectedColourText = MC_Colour(50, 175, 200);
 		for (int C = 0; C < Categories.size(); C++) {
-			RenderUtils::RenderText(selectedCategory && currentCategory == C ? Categories.at(C) + " >" : Categories.at(C), Vec2(boxPos.x + 2, C * 10 + 10), selectedCategory && currentCategory == C ? selectedColourText : whiteText, 1.0f, 1.0f);
+			RenderUtils::RenderText(">>", Vec2(boxPos.z - 10, currentCategory * 10 + 10), selectedColourText, 1.0f, selectedCategory ? 1.0f : 0.f);
+			RenderUtils::RenderText(Categories.at(C), Vec2(boxPos.x + 2, C * 10 + 10), selectedCategory && currentCategory == C ? selectedColourText : whiteText, 1.0f, 1.0f);
 		}
 		if (selectedModule) {
 			std::vector< std::string> ModulesText;
@@ -41,7 +42,8 @@ void TabGUI::onRender() {
 			Vec4 modulesPos = Vec4(boxWidth + 30, 0, boxWidth + modulesWidth + 50, Modules.size() * 10 + 10);
 			RenderUtils::RenderText(Categories.at(currentCategory), Vec2(modulesPos.x + 2, 0), MC_Colour(50, 200, 150), 1.0f, 1.0f);
 			for (int M = 0; M < Modules.size(); M++) {
-				RenderUtils::RenderText(selectedModule && currentModule == M ? Modules.at(M)->name + " >" : Modules.at(M)->name, Vec2(modulesPos.x + 2, M * 10 + 10), selectedModule && Modules.at(M)->isEnabled ? selectedColourText : whiteText, 1.0f, 1.0f);
+				RenderUtils::RenderText(">>", Vec2(modulesPos.z - 10, currentModule * 10 + 10), selectedColourText, 1.0f, selectedModule ? 1.0f : 0.f);
+				RenderUtils::RenderText(Modules.at(M)->name, Vec2(modulesPos.x + 2, M * 10 + 10), selectedModule && Modules.at(M)->isEnabled ? selectedColourText : whiteText, 1.0f, 1.0f);
 			}
 			RenderUtils::FillRectangle(modulesPos, MC_Colour(90, 90, 90), .3f);
 			RenderUtils::DrawRectangle(modulesPos, MC_Colour(255, 255, 255), .3f, .8f);
