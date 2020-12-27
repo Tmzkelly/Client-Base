@@ -33,7 +33,7 @@ struct Vec2 {
 	};
 
 	Vec2() { x = y = 0; }
-	Vec2(float x = 0, float y = 0) {
+	Vec2(float x, float y) {
 		this->x = x, this->y = y;
 	}
 
@@ -114,7 +114,7 @@ struct Vec3 {
 	};
 
 	Vec3() { x = y = z = 0; }
-	Vec3(float x = 0, float y = 0, float z = 0) {
+	Vec3(float x, float y, float z) {
 		this->x = x, this->y = y, this->z = z;
 	}
 
